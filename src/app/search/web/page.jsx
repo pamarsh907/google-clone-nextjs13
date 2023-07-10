@@ -1,7 +1,10 @@
+import WebSearchResults from '@/app/components/web-search-results';
 import Link from 'next/link';
 import React from 'react'
 
 export default  async function WebSearchPage({searchParams}) {
+  //added so not too many api requests are made
+  await new Promise((resolve) => setTimeout(resolve, 10000));
   const response = await fetch(
     `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}`
   )
@@ -25,7 +28,7 @@ export default  async function WebSearchPage({searchParams}) {
   }
     return (
     <div>
-        {results && results.map(result=> <h1>{result.title}</h1>)}
+        {results && <WebSearchResults results={data}/>}
     </div>
   )
 }
