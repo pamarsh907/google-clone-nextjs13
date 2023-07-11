@@ -2,7 +2,7 @@ import WebSearchResults from '@/app/components/web-search-results';
 import Link from 'next/link';
 import React from 'react'
 
-export default  async function WebSearchPage({searchParams}) {
+export default async function WebSearchPage({searchParams}) {
   //added so not too many api requests are made
   await new Promise((resolve) => setTimeout(resolve, 10000));
   const response = await fetch(
