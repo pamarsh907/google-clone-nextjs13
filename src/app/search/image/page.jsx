@@ -1,5 +1,6 @@
 import React from 'react'
 import ImageSearchResults from '@/app/components/image-search-results';
+import Link from 'next/link';
 
 export default async function ImageSearchPage({searchParams}) {
   const startIndex = searchParams.start || "1";
